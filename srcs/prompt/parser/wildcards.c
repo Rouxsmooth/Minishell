@@ -6,7 +6,7 @@
 /*   By: hle-hena <hle-hena@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 14:40:04 by hle-hena          #+#    #+#             */
-/*   Updated: 2025/05/07 15:27:56 by hle-hena         ###   ########.fr       */
+/*   Updated: 2025/06/09 16:23:09 by hle-hena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,7 +188,6 @@ t_list	*split_wildcard(char *line)
 
 char	*expand_wildcards(char *line)
 {
-	int		i;
 	int		j;
 	t_list	*splited;
 	t_list	*temp;
@@ -197,7 +196,6 @@ char	*expand_wildcards(char *line)
 	if (!line)
 		return (NULL);
 	printf("Line is {%s}\n", line);
-	i = -1;
 	result = NULL;
 	splited = split_wildcard(line);
 	if (!splited)
@@ -213,8 +211,6 @@ char	*expand_wildcards(char *line)
 			while (((char *)temp->content)[++j])
 				add_link(&result, ft_strdup(&((char *)temp->content)[j]));
 		}
-		if (temp->next)
-			add_link(&result, ft_strdup(" "));
 		temp = temp->next;
 	}
 	ft_lstclear(&splited, ft_del);
