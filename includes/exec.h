@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hle-hena <hle-hena@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: mzaian <mzaian@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 16:27:19 by hle-hena          #+#    #+#             */
-/*   Updated: 2025/03/07 16:02:03 by hle-hena         ###   ########.fr       */
+/*   Updated: 2025/06/23 23:47:59 by mzaian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,17 @@
 
 # include <wait.h>
 
-int		exec(int nb_cmds, t_cmd *input);
-t_icmd	*init_icmds(t_cmd *input, int nb_cmds);
-void	zero_out(t_icmd *cmds, int nb_cmds);
-void	init_icmd(t_icmd *cmd, t_cmd input);
 char	*get_path(t_cmd input, t_icmd *cmd);
-void	exec_child(t_icmd *cmds, int nb_cmds, int child);
-void	set_io_cp(int child, int nb_cmds, t_icmd *cmds);
-void	here_doc(t_icmd cmd);
-void	close_fd(t_icmd *cmds, int nb_cmds, int child);
-int		exec_parent(t_icmd *cmds, int nb_cmds);
 int		clean_icmds(void);
-int		is_builtin(const char *str);
-void	exec_builtin(t_icmd *cmds, int nb_cmds, int child);
-void	exec_define(t_icmd *cmds, int nb_cmds, int child);
-void	define2child(t_icmd *cmds, int nb_cmds, int child, int start);
-int		is_define(char *str);
 void	set_exit_val(int ret_val);
 
+
+int	    is_builtin(t_cmd	*cmd);
+int	    ft_cd(char **args, t_data *data);
+int	    ft_echo(char **args, t_data *data);
+int	    ft_env(char **args, t_data *data);
+int	    ft_exit(char **args, t_data *data);
+int	    ft_export(char **args, t_data *data);
+int	    ft_pwd(char **args, t_data *data);
+int	    ft_unset(char **args, t_data *data);
 #endif

@@ -9,17 +9,21 @@ LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 DATA_SRC = \
-    clean_data.c create_var.c data.c env2env.c \
-    ft_getenv_struct.c ft_getenv.c ft_getimp_struct.c ft_getimp.c \
-    ft_getloc_struct.c ft_getloc.c init_imp.c is_env.c update_shlvl.c
+	clean_data.c create_var.c data.c env2env.c \
+	ft_getenv_struct.c ft_getenv.c ft_getimp_struct.c ft_getimp.c \
+	ft_getloc_struct.c ft_getloc.c init_imp.c is_env.c update_shlvl.c
+
+EXEC_SRC = \
+	ft_builtins.c exec.c
 
 PROMPT_SRC = \
-    $(addprefix prompt/, color.c prompt.c main.c welcome.c random.c) \
+	$(addprefix prompt/, color.c prompt.c main.c welcome.c random.c) \
 	$(addprefix parser/, bt_utils.c build_tree.c expand.c get_ast.c get_cmd_utils.c get_cmd.c get_subshell.c token.c wildcards.c)
 
 MINI_SRC = \
-    $(addprefix srcs/data/, $(DATA_SRC)) \
-    $(addprefix srcs/prompt/, $(PROMPT_SRC))
+	$(addprefix srcs/data/, $(DATA_SRC)) \
+	$(addprefix srcs/prompt/, $(PROMPT_SRC)) \
+	$(addprefix srcs/exec/, $(EXEC_SRC))
 
 OBJ = $(MINI_SRC:.c=.o)
 
