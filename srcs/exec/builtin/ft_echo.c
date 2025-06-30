@@ -6,13 +6,13 @@
 /*   By: mzaian <mzaian@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 18:04:27 by mzaian            #+#    #+#             */
-/*   Updated: 2025/06/24 18:04:29 by mzaian           ###   ########.fr       */
+/*   Updated: 2025/06/24 18:28:49 by mzaian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini.h"
 
-int	ft_echo(char **args, t_data *data)
+int	ft_echo(char **args)
 {
 	int	i;
 	int	nl;

@@ -6,13 +6,13 @@
 /*   By: mzaian <mzaian@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 14:15:53 by mzaian            #+#    #+#             */
-/*   Updated: 2025/06/24 18:02:32 by mzaian           ###   ########.fr       */
+/*   Updated: 2025/06/24 18:29:02 by mzaian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini.h"
 
-int	ft_unset(char **args, t_list *env)
+int	ft_unset(char **args)
 {
 	t_list	*tmp;
 	int		i;

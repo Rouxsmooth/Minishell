@@ -6,7 +6,7 @@
 /*   By: mzaian <mzaian@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 14:15:35 by mzaian            #+#    #+#             */
-/*   Updated: 2025/06/24 14:15:42 by mzaian           ###   ########.fr       */
+/*   Updated: 2025/06/24 18:30:11 by mzaian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	ft_pwd(char **args)
 {
 	char	*pwd;
 
+	// handle args (ignore)
+	// (void) args;
 	pwd = ft_getenv("PWD");
 	if (pwd)
 		return (printf("%s\n", pwd));

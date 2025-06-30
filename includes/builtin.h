@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hle-hena <hle-hena@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: mzaian <mzaian@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/29 14:32:57 by hle-hena          #+#    #+#             */
-/*   Updated: 2025/02/27 17:17:19 by hle-hena         ###   ########.fr       */
+/*   Created: 2025/06/24 18:28:07 by mzaian            #+#    #+#             */
+/*   Updated: 2025/06/30 14:24:28 by mzaian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,12 @@
 
 # include <sys/stat.h>
 
-int		ft_exit(char **av);
-
-int		ft_pwd(char **arg);
-
-int		ft_unset(char **arg);
-
-int		ft_env(char **arg);
-
-int		ft_echo(t_icmd *cmd);
-
-int		ft_export(char **arg);
-int		export_var(char *str);
-
-int		ft_cd(char **av);
-//curpath.c
-char	*check_curpath(char *curpath, char *arg);
-char	*clean_curpath(char *curpath);
-char	*get_curpath(char *arg, int *print);
-//cd_env.c
-void	update_env(char *curpath);
-//utils.c
-char	*create_path(char *first_component, char *second_component);
-char	*test_cdpath(char **cdpath, char *arg);
-int		is_dot(char *path);
-
-int		ft_color(char **av);
+int	ft_cd(char **args);
+int	ft_echo(char **args);
+int	ft_env(char **args, t_list *env);
+int	ft_exit(char **args, t_data *data);
+int	ft_export(char **args, t_list *env);
+int	ft_pwd(char **args);
+int	ft_unset(char **args);
 
 #endif
