@@ -6,7 +6,7 @@
 /*   By: mzaian <mzaian@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 06:12:57 by meroux            #+#    #+#             */
-/*   Updated: 2025/06/30 14:35:27 by mzaian           ###   ########.fr       */
+/*   Updated: 2025/07/07 14:02:40 by mzaian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ int	is_builtin(t_cmd *cmd)
 {
 	int			cmd_len;
 	int			i;
-	static char	*builtin_cmds[7] = {"echo", "cd", "pwd", "export", "unset",
-			"env", "exit"};
+	char	**builtin_cmds;
 
 	if (!cmd || !cmd->args || !cmd->args[0])
 		return (0);
+	builtin_cmds = (char *[7]){"echo", "cd", "pwd", "export", "unset", "env",
+		"exit"};
 	cmd_len = ft_strlen(cmd->args[0]);
 	i = -1;
 	while (++i < 7)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_cmd.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hle-hena <hle-hena@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: mzaian <mzaian@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 10:36:34 by hle-hena          #+#    #+#             */
-/*   Updated: 2025/05/06 10:59:00 by hle-hena         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:20:38 by mzaian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ char	*get_redirect(char *line, int *forward, t_cmd *cmd, char **temp)
 	char	*str;
 	int		err;
 	int		sep;
-	t_op	*open;
+	t_open	*open;
 
 	err = 0;
 	str = tokenize(line, forward, &err, &sep);
-	open = ft_calloc(1, sizeof(t_op));
+	open = ft_calloc(1, sizeof(t_open));
 	if (!open)
 		ft_perror(1, "Internal error: malloc.", 0);
 	if (!str || err || ft_strchr("><|&()", str[0]))
@@ -50,7 +50,7 @@ void	clear_open(t_list **open)
 	while (*open)
 	{
 		temp = (*open)->next;
-		ft_del((void **)&((t_op *)(*open)->content)->str);
+		ft_del((void **)&((t_open *)(*open)->content)->str);
 		ft_del(&(*open)->content);
 		ft_del((void **)open);
 		*open = temp;

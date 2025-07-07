@@ -6,7 +6,7 @@
 /*   By: mzaian <mzaian@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 13:05:10 by hle-hena          #+#    #+#             */
-/*   Updated: 2025/06/27 11:18:42 by mzaian           ###   ########.fr       */
+/*   Updated: 2025/07/07 16:55:27 by mzaian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,8 @@
 /* -------------------------------------------------------------------------- */
 typedef struct s_info_cmd
 {
-	int		fd_in;
-	int		fd_out;
-	char	*here_doc;
-	char	*path;
 	char	**args;
-	int		define;
 	int		pipe[2];
-	int		pid;
-	int		exit;
 }	t_icmd;
 
 typedef struct s_bt
@@ -49,17 +42,17 @@ typedef struct s_bt
 
 /* 
 	Modes :
-		0 - out, truncate
-		1 - out, append
-		2 - in, normal
-		3 - in, heredoc
-		4 - in out, both in that order
+		0 - out, truncate >
+		1 - out, append >>
+		2 - in, normal <
+		3 - in, heredoc <<
+		4 - in out, both in that order <>
 */
 typedef struct s_open
 {
 	int		mode;
 	char	*str;
-}	t_op;
+}	t_open;
 
 typedef struct s_cmd
 {

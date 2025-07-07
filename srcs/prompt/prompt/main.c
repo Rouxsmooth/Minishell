@@ -93,7 +93,7 @@ void	print_cmd(t_cmd *cmd, int depth)
 	temp = cmd->open;
 	while (temp)
 	{
-		printf("%*sopen %d: %s\n", depth * 4 + 4, "", ((t_op *)temp->content)->mode, ((t_op *)temp->content)->str);
+		printf("%*sopen %d: %s\n", depth * 4 + 4, "", ((t_open *)temp->content)->mode, ((t_open *)temp->content)->str);
 		temp = temp->next;
 	}
 }
