@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzaian <mzaian@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/12 06:12:57 by meroux            #+#    #+#             */
-/*   Updated: 2025/07/07 14:02:40 by mzaian           ###   ########.fr       */
+/*   Created: 2025/06/12 06:12:57 by mzaian            #+#    #+#             */
+/*   Updated: 2025/07/10 20:58:16 by mzaian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	is_builtin(t_cmd *cmd)
 	i = -1;
 	while (++i < 7)
 	{
-		if (ft_strncmp(cmd->args[0], builtin_cmds[i], ft_min(cmd_len,
+		if (ft_strncmp(cmd->args[0], builtin_cmds[i], ft_max(cmd_len,
 					ft_strlen(builtin_cmds[i]))) == 0)
 			return (1);
 	}
@@ -35,28 +35,19 @@ int	is_builtin(t_cmd *cmd)
 
 void	exec_builtin(t_cmd *cmd, t_data *data)
 {
-	pid_t	pid;
-
-	pid = fork();
-	if (!pid)
-	{
-		if (!ft_strncmp(cmd->args[0], "cd", 2))
-			ft_cd(cmd->args);
-		else if (!ft_strncmp(cmd->args[0], "echo", 4))
-			ft_echo(cmd->args);
-		else if (!ft_strncmp(cmd->args[0], "env", 3))
-			ft_env(cmd->args, data->env);
-		else if (!ft_strncmp(cmd->args[0], "exit", 4))
-			ft_exit(cmd->args, data);
-		else if (!ft_strncmp(cmd->args[0], "export", 7))
-			ft_export(cmd->args, data->env);
-		else if (!ft_strncmp(cmd->args[0], "pwd", 3))
-			ft_pwd(cmd->args);
-		else if (!ft_strncmp(cmd->args[0], "unset", 5))
-			ft_unset(cmd->args);
-		exit(0);
-	}
-	else
-		waitpid(pid, NULL, 0);
+	if (!ft_strncmp(cmd->args[0], "cd", 2))
+		ft_cd(cmd->args);
+	else if (!ft_strncmp(cmd->args[0], "echo", 4))
+		ft_echo(cmd->args);
+	else if (!ft_strncmp(cmd->args[0], "env", 3))
+		ft_env(cmd->args, data->env);
+	else if (!ft_strncmp(cmd->args[0], "exit", 4))
+		ft_exit(cmd->args, data);
+	else if (!ft_strncmp(cmd->args[0], "export", 7))
+		ft_export(cmd->args, data->env);
+	else if (!ft_strncmp(cmd->args[0], "pwd", 3))
+		ft_pwd(cmd->args);
+	else if (!ft_strncmp(cmd->args[0], "unset", 5))
+		ft_unset(cmd->args);
 	return ;
 }
