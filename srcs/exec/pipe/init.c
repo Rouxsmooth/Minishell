@@ -6,7 +6,7 @@
 /*   By: mzaian <mzaian@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:52:18 by mzaian            #+#    #+#             */
-/*   Updated: 2025/07/10 18:50:27 by mzaian           ###   ########.fr       */
+/*   Updated: 2025/07/15 11:55:31 by mzaian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ void	create_pipes(t_list *icmds, t_list *cmds)
 		pipe_success = pipe(icmd->pipe);
 		if (pipe_success < 0)
 			//ft_perror clear data exit
+		if (tmp_cmds->next != cmds)
+			ft_lstadd_front(&((t_cmd *)tmp_cmds->next->content)->open,
+			ft_lstnew(icmd->pipe[1]));
 		get_opens(cmd->open, icmd);
 		tmp_icmds = tmp_icmds->next;
 		tmp_cmds = tmp_cmds->next;

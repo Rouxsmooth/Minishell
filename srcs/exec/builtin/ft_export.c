@@ -6,7 +6,7 @@
 /*   By: mzaian <mzaian@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 18:03:32 by mzaian            #+#    #+#             */
-/*   Updated: 2025/06/24 18:03:33 by mzaian           ###   ########.fr       */
+/*   Updated: 2025/07/15 11:59:59 by mzaian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	ft_export(char **args, t_list *env)
 		return (printf("declare -x %s\n", (char *)tmp_env->content), 0);
 	size = ft_lstsize(tmp_env);
 	sort_lst_by_str(tmp_env, size);
-	while (tmp_env->next)
+	while (tmp_env)
 	{
 		printf("declare -x %s\n", (char *)tmp_env->content);
 		tmp_env = tmp_env->next;

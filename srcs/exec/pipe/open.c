@@ -6,7 +6,7 @@
 /*   By: mzaian <mzaian@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:50:37 by mzaian            #+#    #+#             */
-/*   Updated: 2025/07/10 21:47:23 by mzaian           ###   ########.fr       */
+/*   Updated: 2025/07/15 11:47:59 by mzaian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	open_out(t_icmd *icmd, t_open *curr_open)
 {
 	if (access(curr_open->str, F_OK | W_OK) == -1)
 		//ft_perror clear data exit
-	if (!curr_open->mode)
+	if (!curr_open->modez)
 	{
 		close(icmd->pipe[1]);
 		icmd->pipe[1] = open(curr_open->str, O_WRONLY | O_CREAT | O_APPEND, 0644);
