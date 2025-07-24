@@ -6,7 +6,7 @@
 /*   By: mzaian <mzaian@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:52:18 by mzaian            #+#    #+#             */
-/*   Updated: 2025/07/15 11:55:31 by mzaian           ###   ########.fr       */
+/*   Updated: 2025/07/24 15:59:54 by mzaian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,13 @@ t_list	*create_icmds(t_list *cmds, int nb_cmds)
 	cmd = (t_cmd *)tmp->content;
 	icmd->args = cmd->args;
 	icmds = head->next;
-	while (tmp && nb_cmds != 1)
+	while (tmp && nb_cmds-- != 1)
 	{
 		icmds = (t_list *)malloc(sizeof(t_list));
 		icmd = (t_icmd *)icmds->content;
 		cmd = (t_cmd *)tmp->content;
-		icmd->args = cmd->args;
+		icmd->args = &cmd->args[1];
+		icmd->path = cmd->args[0];
 		icmds = icmds->next;
 		tmp = tmp->next;
 	}
